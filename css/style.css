@@ -8,7 +8,9 @@
 
 
 /*universal selector: normalization*/
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -151,8 +153,9 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all .2s;   /*还原smoothly*/
-  position：relative;
+  position: relative;
 }
+
 
 .btn:hover {
   transform: translateY(-3px);
@@ -177,8 +180,29 @@ body {
   animation-fill-mode: backwards; /*使button一开始不出现*/
 }
 
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /*移至下层*/
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; /*fade*/
+}
+
 /*psuedo element, child of the "btn"*/
-/*.btn::after {
+/*.btn:after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -191,11 +215,11 @@ body {
     transform: all .4s;
 }
 
-.btn-white::after {
+.btn-white:after {
   background-color: #fff;
 }
 
-.btn:hover::after {
+.btn:hover:after {
   transform: scaleX(1.4);
   transform: scaleY(1.6);
   opacity: 0;
