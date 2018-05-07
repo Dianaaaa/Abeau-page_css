@@ -1,0 +1,32 @@
+/*
+  COLOURS:
+  #7ed56f
+  #55c57a
+  #28b485
+  #777
+*/
+
+
+/*universal selector: normalization*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*body element selector*/
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+}
+
+/*class element selector*/
+.header-box {
+  height: 95vh;                   //"almost" 100 persent.
+  background-image: url('../img/hero.jpg');
+  background-size: cover;         //fit for the box;
+
+}
